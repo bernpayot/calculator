@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+* {
+    box-sizing: border-box;
+    font-family: Roboto, sans-serif, 'Times New Roman';
+}
+
+body {
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    max-width: 90%;
+    width: 400px;
+    height: 600px;
+    border: 1px solid black;
+    border-radius: 12px;
+    box-shadow: 10px 10px black;
+    display: block;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+}
+
+.screen {
+    height: 100px;
+    width: auto;
+    display: flex;
+    border: 1px solid black;
+    border-radius: 12px;
+    padding: 12px;
+    margin-bottom: 20px;
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.button {
+    height: 80px;
+    width: 80px;
+    border: 2px solid black;
+    border-radius: 12px;
+    font-size: 24px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background-color: #fff;
+    transition: all 0.2s;
+}
+
+.footer {
+    margin: 30px;
+    display: flex;
+    font-size: 18px;
+    justify-content: center;
+    align-items: center;
+}
+
+.button:hover {
+    background-color: #ddd;
+}
+
+.button:active {
+    background-color: #bbb;
+}
+
+.operator {
+    background-color: #f4a261;
+}
+
+.operator:hover {
+    background-color: #e76f51;
+}
+
+.clear {
+    background-color: #e1848b;
+    color: white;
+}
+
+.clear:hover {
+    background-color: #d62828;
+}
+
+.equal {
+    background-color: #2a9d8f;
+    color: white;
+}
+
+.equal:hover {
+    background-color: #21867a;
+}
