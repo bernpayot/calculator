@@ -1,33 +1,84 @@
-let answer = '';
-let num1 = '';
-let num2 = '';
-let operator = '';
+let firstOperand = '';
+let secondOperand = '';
+let currentOperation = '';
+let result = null;
 
-function add(num1, num2) {
-    answer = num1 + num2;
-    return answer;
+const display = document.querySelector(".screen");
+const numButtons = document.querySelectorAll(".button.num");
+numButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+        appendNumber(button.innerText);
+    })
+});
+
+const operatorButtons = document.querySelectorAll(".button.operator");
+operatorButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+        appendOperation(button.innerText);
+    })
+});
+
+const equalButton = document.querySelector(".button.equal");
+equalButton.addEventListener("click", () => {
+    operate();
+});
+
+const clearButton = document.querySelector(".button.clear");
+clearButton.addEventListener("click", () => {
+    clear();
+})
+
+function appendNumber(num) {
+    firstOperand += num;
+    display.innerText = firstOperand;
 }
 
-function subtract(num1, num2) {
-    answer = num1 - num2;
-    return answer;
-}
-
-function multiply(num1, num2) {
-    answer = num1 * num2;
-    return answer;
-}
-
-function divide(num1, num2) {
-    answer = num1 / num2;
-    return answer;
+function appendOperation(operation) {
+    if (firstOperand === '') return;
+    currentOperation = operation;
+    secondOperand = firstOperand;
+    firstOperand = '';
 }
 
 function operate() {
+    if (firstOperand === '' || secondOperand === '') return;
 
+    let previous = parseInt(secondOperand);
+    let current = parseInt(firstOperand);
+
+    switch(currentOperation) {
+        case '+':
+            result = previous + current;
+            break;
+        case '-':
+            result = previous - current;
+            break;
+        case '×':
+            result = previous * current;
+            break;
+        case '÷':
+            if (current === 0) {
+                result = "lmfao no";
+                break;
+            }
+            result = previous / current;
+            break;    
+        default:
+            return;            
+    }
+
+    firstOperand = '';
+    secondOperand = '';
+    currentOperation = '';
+    display.innerText = result;
 }
 
-console.log(add(12,13));
-console.log(subtract(12,15));
-console.log(multiply(5,10));
-console.log(divide(4,2));
+function clear() {
+    firstOperand = '';
+    secondOperand = '';
+    currentOperation = '';
+    display.innerText = "0";
+}
+
+
+
