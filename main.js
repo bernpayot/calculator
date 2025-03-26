@@ -3,7 +3,8 @@ let secondOperand = '';
 let currentOperation = '';
 let result = null;
 
-const display = document.querySelector(".screen");
+const operatorDisplay = document.querySelector(".screen-operator");
+const display = document.querySelector(".screen-content");
 const numButtons = document.querySelectorAll(".button.num");
 numButtons.forEach((button) => {
     button.addEventListener("click", () => {
@@ -30,7 +31,7 @@ clearButton.addEventListener("click", () => {
 
 function appendNumber(num) {
     firstOperand += num;
-    display.innerText = firstOperand;
+    display.innerText = firstOperand.substring(0,9);
 }
 
 function appendOperation(operation) {
@@ -38,6 +39,7 @@ function appendOperation(operation) {
     currentOperation = operation;
     secondOperand = firstOperand;
     firstOperand = '';
+    operatorDisplay.innerText = currentOperation;
 }
 
 function operate() {
@@ -46,11 +48,11 @@ function operate() {
     let previous = parseInt(secondOperand);
     let current = parseInt(firstOperand);
 
-    switch(currentOperation) {
+    switch (currentOperation) {
         case '+':
             result = previous + current;
             break;
-        case '-':
+        case '–':
             result = previous - current;
             break;
         case '×':
@@ -62,15 +64,14 @@ function operate() {
                 break;
             }
             result = previous / current;
-            break;    
+            break;
         default:
-            return;            
+            return;
     }
-
-    firstOperand = '';
+    firstOperand = result;
     secondOperand = '';
     currentOperation = '';
-    display.innerText = result;
+    display.innerText = Math.floor(result * 100) / 100;
 }
 
 function clear() {
@@ -78,6 +79,7 @@ function clear() {
     secondOperand = '';
     currentOperation = '';
     display.innerText = "0";
+    operatorDisplay.innerText = '';
 }
 
 

@@ -11,12 +11,13 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #486581;
 }
 
 .container {
     max-width: 90%;
     width: 400px;
-    height: 600px;
+    height: 510px;
     border: 1px solid black;
     border-radius: 12px;
     box-shadow: 10px 10px black;
@@ -24,20 +25,41 @@ body {
     justify-content: center;
     align-items: flex-start;
     padding: 20px;
+    background-color:#102a43;
 }
 
 .screen {
+    display: block;
     height: 100px;
     width: auto;
-    display: flex;
-    border: 1px solid black;
+    border: 1px solid aliceblue;
     border-radius: 12px;
-    padding: 12px;
     margin-bottom: 20px;
-    font-size: 80px;
-    font-style: italic;
+    background-color: #829ab1;
+}
+
+.screen-operator {
+    height: 20px;
+    margin-top: 15px;
+    padding-right: 8px;
+    margin: 0;
+    font-size: 22px;
+    display: flex;
     justify-content: flex-end;
-    align-items: center;
+    align-items: flex-start;
+    color:aliceblue;
+}
+.screen-content {
+    height: auto;
+    width: auto;
+    padding-left: 10px;
+    padding-right: 8px;
+    font-size: 60px;
+    font-style: italic;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    color:aliceblue;
 }
 
 .buttons {
@@ -50,7 +72,7 @@ body {
 .button {
     height: 80px;
     width: 80px;
-    border: 2px solid black;
+    border: 2px solid rgb(191, 208, 223);
     border-radius: 12px;
     font-size: 24px;
     font-weight: bold;
@@ -58,7 +80,7 @@ body {
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    background-color: #fff;
+    background-color: aliceblue;
     transition: all 0.2s;
 }
 
@@ -71,7 +93,7 @@ body {
 }
 
 .button:hover {
-    background-color: #ddd;
+    background-color: rgb(193, 224, 251);
 }
 
 .button:active {
